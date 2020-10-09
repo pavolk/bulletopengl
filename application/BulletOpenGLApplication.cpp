@@ -156,13 +156,18 @@ void BulletOpenGLApplication::Idle()
 	// isn't busy processing its own events. It should be used
 	// to perform any updating and rendering tasks
 
+	// get the time since the last iteration
+	float dt = m_clock.getTimeMilliseconds();
+	if (dt < 10) {
+		return;
+	}
+
+	// reset the clock to 0
+	m_clock.reset();
+
 	// clear the backbuffer
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	// get the time since the last iteration
-	float dt = m_clock.getTimeMilliseconds();
-	// reset the clock to 0
-	m_clock.reset();
 	// update the scene (convert ms to s)
 	UpdateScene(dt / 1000.0f);
 
