@@ -1,6 +1,10 @@
 #ifndef _BULLETOPENGLAPP_H_
 #define _BULLETOPENGLAPP_H_
 
+#if defined(_WIN32)
+#include <Windows.h>
+#endif
+
 #include <GL/gl.h>
 #include <GL/freeglut.h>
 
